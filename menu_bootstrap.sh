@@ -4,11 +4,15 @@ export FOLDERS_PCSXDATA=/tmp/folders_pcsx
 export FOLDERS_SRC=/media/folders
 export FOLDERS_RUN=/var/run/folders
 
-# # Wait for splash to finish
-# while [ $(ps | grep /usr/sony/bin/ui_menu | grep -v grep | wc -l) -eq 0 ]; do
-#     sleep 5
-# done
-# sleep 5
+# Wait for splash to finish
+# 1. Make sure sonyapp is running
+while [ $(ps | grep sonyapp | grep -v grep | wc -l) -eq 0 ]; do
+    sleep 1
+done
+# 2. Wait until ui_menu is running
+while [ $(ps | grep /usr/sony/bin/ui_menu | grep -v grep | wc -l) -eq 0 ]; do
+    sleep 1
+done
 
 # Shut down ui_menu
 touch /data/power/prepare_suspend
