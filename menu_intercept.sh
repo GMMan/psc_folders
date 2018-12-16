@@ -10,16 +10,11 @@ FOLDERS_SRC=$(cat "${FOLDERS_RUN}/src")
 # $2 dest
 # folders only
 link_folders () {
-    echo "enter link_folders"
-    echo "$@"
     for D in $1/*; do
-        echo "${D}"
         if [ -d "${D}" ]; then
-            echo "link!"
             ln -s "${D}" "$2"
         fi
     done
-    echo "exit link_folders"
 }
 
 setup_ui () {
@@ -82,11 +77,6 @@ do_folders () {
 
     setup_ui "$1"
 
-    echo "${FOLDERS_GAADATA}:"
-    ls -l "${FOLDERS_GAADATA}"
-    echo "${FOLDERS_PCSXDATA}:"
-    ls -l "${FOLDERS_PCSXDATA}"
-
     # Reset index before launching
     sed -i "s/iUiUserSettingLastSelectGameCursorPos=.*/iUiUserSettingLastSelectGameCursorPos=0/" /data/AppData/sony/ui/user.pre
 
@@ -114,7 +104,6 @@ shutdown_menu () {
     rm "${FOLDERS_RUN}/${cur_depth}"
     cur_depth=$((cur_depth - 1))
     echo "${cur_depth}" > "${FOLDERS_RUN}/depth"
-    echo "depth: ${cur_depth}"
     if [ "${cur_depth}" -gt 0 ]; then
         prev_folder=$(cat "${FOLDERS_RUN}/${cur_depth}")
         do_folders "${prev_folder}" 0
