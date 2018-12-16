@@ -80,7 +80,7 @@ do_folders () {
     # Reset index before launching
     sed -i "s/iUiUserSettingLastSelectGameCursorPos=.*/iUiUserSettingLastSelectGameCursorPos=0/" /data/AppData/sony/ui/user.pre
 
-    cd "${FOLDERS_PCSXDATA}"
+    cd /data/AppData/sony/pcsx
     cur_depth=$(cat "${FOLDERS_RUN}/depth")
     if [ "${cur_depth}" -eq 1 -a $2 -ne 0 ]; then
         # First level, emulate fresh boot
