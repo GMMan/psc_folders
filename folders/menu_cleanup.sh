@@ -21,5 +21,8 @@ rm -rf "${FOLDERS_GAADATA}" "${FOLDERS_PCSXDATA}" "${FOLDERS_RUN}"
 # # Tell power manager to turn off system
 # echo off > /dev/shm/power/control
 
+# Restart Weston, the UI seems to get stuck
+systemctl restart weston
+sleep 2
 # Instead, just restart the sonyapp service
 systemctl start sonyapp &
