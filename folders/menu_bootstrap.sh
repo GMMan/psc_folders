@@ -43,6 +43,9 @@ echo "${FOLDERS_GAADATA}" > "${FOLDERS_RUN}/gaadata"
 echo "${FOLDERS_PCSXDATA}" > "${FOLDERS_RUN}/pcsxdata"
 echo "${FOLDERS_SRC}" > "${FOLDERS_RUN}/src"
 
+# Apply health patch
+"${FOLDERS_SRC}/health_patch.sh"
+
 # Launch root menu
 ${FOLDERS_SRC}/menu_intercept.sh -cdfile /data/AppData/sony/title/FOLDER-menu_root.cue
 

@@ -11,7 +11,8 @@ rm /data/power/prepare_suspend
 # Perform cleanup
 umount /usr/sony/share/data/preferences
 umount /gaadata/databases
-rm -rf "${FOLDERS_GAADATA}" "${FOLDERS_PCSXDATA}" "${FOLDERS_RUN}"
+umount /usr/sony/bin/ui_menu
+rm -rf "${FOLDERS_GAADATA}" "${FOLDERS_PCSXDATA}" "${FOLDERS_RUN}" /tmp/health_patch
 
 # Let's not shut down for now, there's an issue getting the USB to run again on resume
 
