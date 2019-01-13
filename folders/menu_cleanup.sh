@@ -14,6 +14,8 @@ umount /gaadata/databases
 umount /usr/sony/bin/ui_menu
 rm -rf "${FOLDERS_GAADATA}" "${FOLDERS_PCSXDATA}" "${FOLDERS_RUN}" /tmp/health_patch
 
+cd /tmp
+
 # Let's not shut down for now, there's an issue getting the USB to run again on resume
 
 # # Wait a bit so initial script has time to exit and the drive unmount
